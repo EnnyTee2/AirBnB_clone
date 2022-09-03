@@ -1,5 +1,6 @@
 from uuid import uuid4
 from datetime import datetime
+from models import storage
 
 class BaseModel:
     """
@@ -17,11 +18,14 @@ class BaseModel:
                     setattr(self, key, value)
                 if key == 'created_at' or key == 'updated_at':
                     time_format = '%Y-%m-%dT%H:%M:%S.%f'
-                    setattr(self, key, datetime.strptime(value, time_format))                    
+                    setattr(self, key, datetime.strptime(value, time_format))
+        else:
+            strorage.new(self)
 
     def save(self):
         """Updates updated_at with the current datetime object"""
         self.updated_at = datetime.now()
+        storage.save(self)
 
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
