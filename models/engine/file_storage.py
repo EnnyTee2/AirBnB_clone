@@ -14,8 +14,8 @@ class FileStorage:
     __filepath = 'airbnb_clone.json'
     __objects = {}
 
-
     def all(self):
+        """Returns all the objects"""
         return self.__objects
 
     def new(self, obj):
