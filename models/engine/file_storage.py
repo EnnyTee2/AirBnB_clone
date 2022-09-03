@@ -11,7 +11,7 @@ class FileStorage:
     '''
 
 
-    __filepath = 'airbnb_clone.json'
+    __filepath = 'airbnb_file.json'
     __objects = {}
 
     def all(self):
