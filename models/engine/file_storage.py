@@ -19,11 +19,11 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """Set in __objects obj with key <obj_class_name>.id."""
+        """Sets in __objects obj with key <obj_class_name>.id."""
         self.__objects['{}.{}'.format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
-        """Serialize __objects to the JSON file __file_path."""
+        """Serializes __objects to the JSON file __file_path."""
         dicobject = {}
         for key in self.__objects:
             dicobject[key] = self.__objects[key].
