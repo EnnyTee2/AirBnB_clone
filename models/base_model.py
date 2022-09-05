@@ -2,11 +2,11 @@ from uuid import uuid4
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """
         Defines the BaseModel class for all objects
     """
-
 
     def __init__(self, *args, **kwargs):
         """Base model initialization"""
@@ -29,16 +29,17 @@ class BaseModel:
 
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
-        dicto = {'__class__': type(self).__name__ ,
-                 'created_at': datetime.isoformat(self.created_at),
-                 'updated_at': datetime.isoformat(self.updated_at)
-                }
+        dicto = {
+            '__class__': type(self).__name__,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at)
+        }
         dict_rep = dict(self.__dict__)
         dict_rep.update(dicto)
         return dict_rep
 
     def __str__(self):
-        """ overriding the default str method to define the 
+        """ overriding the default str method to define the
             string representation of the BaseModel class
         """
         return (f"[{type(self).__name__}] ({self.id}) {self.__dict__}")
