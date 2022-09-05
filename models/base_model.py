@@ -23,7 +23,7 @@ class BaseModel:
                     time_format = '%Y-%m-%dT%H:%M:%S.%f'
                     setattr(self, key, datetime.strptime(value, time_format))
         else:
-            models.stroage.new(self)
+            models.storage.new(self)
 
     def save(self):
         """Updates updated_at with the current datetime object"""
