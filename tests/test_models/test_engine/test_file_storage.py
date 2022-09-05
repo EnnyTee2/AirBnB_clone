@@ -45,14 +45,14 @@ class TestFileStorage_methods(unittest.TestCase):
     @classmethod
     def setUp(self):
         try:
-            os.rename("file.json", "tmp")
+            os.rename("airbnb_file.json", "tmp")
         except IOError:
             pass
 
     @classmethod
     def tearDown(self):
         try:
-            os.remove("file.json")
+            os.remove("airbnb_file.json")
         except IOError:
             pass
         try:
