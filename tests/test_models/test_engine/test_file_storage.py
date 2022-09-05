@@ -57,7 +57,7 @@ class TestFileStorage_methods(unittest.TestCase):
         except IOError:
             pass
         try:
-            os.rename("tmp", "file.json")
+            os.rename("tmp", "airbnb_file.json")
         except IOError:
             pass
         FileStorage._FileStorage__objects = {}
@@ -120,7 +120,7 @@ class TestFileStorage_methods(unittest.TestCase):
         models.storage.new(rv)
         models.storage.save()
         save_text = ""
-        with open("file.json", "r") as f:
+        with open("airbnb_file.json", "r") as f:
             save_text = f.read()
             self.assertIn("BaseModel." + bm.id, save_text)
             self.assertIn("User." + us.id, save_text)
