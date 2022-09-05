@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Defines the BaseModel class."""
 from uuid import uuid4
 from datetime import datetime
 from models import storage
@@ -5,7 +7,8 @@ from models import storage
 
 class BaseModel:
     """
-        Defines the BaseModel class for all objects
+        Represents the BaseModel class for all
+        objects in the AirBnb Clone Project
     """
 
     def __init__(self, *args, **kwargs):
