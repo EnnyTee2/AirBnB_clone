@@ -1,5 +1,6 @@
 import json
 
+
 class FileStorage:
     ''' This class serializes instances to a JSON file
         and deserializes JSON file to instances, It thus
@@ -9,7 +10,6 @@ class FileStorage:
         __file_path (str): The path to the name of the file to save objects to.
         __objects (dict): A dictionary of instantiated objects.
     '''
-
 
     __filepath = 'airbnb_file.json'
     __objects = {}
@@ -26,7 +26,7 @@ class FileStorage:
         """Serializes __objects to the JSON file __file_path."""
         dicobject = {}
         for key in self.__objects:
-            dicobject[key] = self.__objects[key].
+            dicobject[key] = self.__objects[key]
         with open(self.__filepath, 'w', encoding ='utf8') as json_file:
             json.dump(dicobject, json_file)
 
