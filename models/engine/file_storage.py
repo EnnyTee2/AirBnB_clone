@@ -1,6 +1,13 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Defines the FileStorage class."""
 import json
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 
 class FileStorage:
@@ -14,7 +21,7 @@ class FileStorage:
         __objects (dict): A dictionary of instantiated objects.
     '''
 
-    __filepath = 'airbnb_file.json'
+    __file_path = 'airbnb_file.json'
     __objects = {}
 
     def all(self):
@@ -30,13 +37,13 @@ class FileStorage:
         dicobject = {}
         for key in self.__objects:
             dicobject[key] = self.__objects[key]
-        with open(self.__filepath, 'w', encoding='utf8') as json_file:
+        with open(self.__file_path, 'w', encoding='utf8') as json_file:
             json.dump(dicobject, json_file)
 
     def reload(self):
         """Deserialize the JSON file __file_path to __objects, if it exists."""
         try:
-            with open(self.__filepath, 'r', encoding='utf8') as json_file:
+            with open(self.__file_path, 'r', encoding='utf8') as json_file:
                 json.load(json_file)
         except FileNotFoundError:
             pass
