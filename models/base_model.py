@@ -43,4 +43,4 @@ class BaseModel:
         """ overriding the default str method to define the
             string representation of the BaseModel class
         """
-        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
