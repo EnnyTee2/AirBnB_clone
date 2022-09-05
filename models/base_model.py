@@ -23,12 +23,12 @@ class BaseModel:
                     time_format = '%Y-%m-%dT%H:%M:%S.%f'
                     setattr(self, key, datetime.strptime(value, time_format))
         else:
-            strorage.new(self)
+            stroage.new(self)
 
     def save(self):
         """Updates updated_at with the current datetime object"""
         self.updated_at = datetime.now()
-        storage.save(self)
+        storage.save()
 
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
