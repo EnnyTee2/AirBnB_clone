@@ -33,12 +33,13 @@ class BaseModel:
 
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
-        dicto = {
-            '__class__': type(self).__name__,
-            'created_at': datetime.isoformat(self.created_at),
-            'updated_at': datetime.isoformat(self.updated_at)
-        }
         dict_rep = self.__dict__.copy()
+        dicto = {
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
+             '__class__': self.__class__.__name__
+        }
+       
         dict_rep.update(dicto)
         return dict_rep
 
