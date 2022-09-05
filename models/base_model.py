@@ -34,8 +34,8 @@ class BaseModel:
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
         dict_rep = self.__dict__.copy()
-        dict_rep['created_at'] = datetime.isoformat(self.created_at)
-        dict_rep['updated_at'] = datetime.isoformat(self.updated_at)
+        dict_rep['created_at'] = self.created_at.isoformat()
+        dict_rep['updated_at'] = self.updated_at.isoformat()
         dict_rep['__class__'] = self.__class__.__name__
         return dict_rep
 
