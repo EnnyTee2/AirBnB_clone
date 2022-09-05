@@ -38,7 +38,7 @@ class BaseModel:
             'created_at': datetime.isoformat(self.created_at),
             'updated_at': datetime.isoformat(self.updated_at)
         }
-        dict_rep = dict(self.__dict__)
+        dict_rep = self.__dict__.copy()
         dict_rep.update(dicto)
         return dict_rep
 
