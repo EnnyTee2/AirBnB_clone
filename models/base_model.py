@@ -2,7 +2,7 @@
 """Defines the BaseModel class."""
 from uuid import uuid4
 from datetime import datetime
-import models
+from models import storage
 
 
 class BaseModel:
@@ -24,19 +24,22 @@ class BaseModel:
                     time_format = '%Y-%m-%dT%H:%M:%S.%f'
                     setattr(self, key, datetime.strptime(value, time_format))
         else:
-            models.storage.new(self)
+            storage.new(self)
 
     def save(self):
         """Updates updated_at with the current datetime object"""
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """Converts all class attributes to a dictionary (json format)"""
-        dict_rep = self.__dict__.copy()
-        dict_rep['created_at'] = self.created_at.isoformat()
-        dict_rep['updated_at'] = self.updated_at.isoformat()
-        dict_rep['__class__'] = self.__class__.__name__
+        dicto = {
+            '__class__': type(self).__name__,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at)
+        }
+        dict_rep = dict(self.__dict__)
+        dict_rep.update(dicto)
         return dict_rep
 
     def __str__(self):
