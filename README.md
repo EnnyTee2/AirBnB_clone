@@ -89,12 +89,10 @@ Creates a new instance of a given class. The class' ID is printed and timestampe
 the created instance is saved to the file `file.json`.
 
 
-```
-
 ## Testing 
 
 Unittests for the AirBnB project are defined in the [tests](./tests) 
-folder. To run the entire test suite simultaneously, execute the following command:
+directory. To run the complete test suite in an instant, execute the following command:
 
 ```
 $ python3 unittest -m discover tests
