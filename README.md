@@ -106,5 +106,5 @@ Alternatively, you can specify a single test file to run at a time:
 $ python3 unittest -m tests/test_console.py
 ```
 
-## Author 
-* **Trust Eniola** <[EnnyTee2](https://github.com/EnnyTee2)>
+## Author
+* **Trust Eniola** [EnnyTee2](https://github.com/EnnyTee2)
